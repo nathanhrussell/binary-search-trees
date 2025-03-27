@@ -39,4 +39,30 @@ class Tree {
 
         return node;
     }
-}
+
+    deleteItem(value) {
+        this.root = this._deleteRec(this.root, value);
+    }
+
+    _deleteRec(node, value) {
+        if (node === null) return null;
+
+        if (value < node.value) {
+            node.left = this._deleteRec(node.left, value);
+        } else if (value > node.value) {
+            node.right = this._deleteRec(node.right, value);
+        } else {
+            if (node.left === null) return node.right;
+            if (node.right === null) return node.left;
+        
+
+        const successorValue = this._minValue(node.right);
+        node.value = successorValue;
+        node.right = this._deleteRec(node.right, successorValue);
+        }
+
+        return node;
+    }
+
+
+    }
