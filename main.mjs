@@ -23,4 +23,20 @@ class Tree {
 
         return root;
     }
+
+    insert(value) {
+        this.root = this._insertRec(this.root, value);
+    }
+
+    _insertRec(node, value) {
+        if (node === null) return new Node(value);
+
+        if (value < node.value) {
+            node.left = this._insertRec(node.left, value);
+        } else if (value > node.value) {
+            node.right = this._insertRec(node.right, value);
+        }
+
+        return node;
+    }
 }
