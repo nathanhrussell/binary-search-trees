@@ -85,4 +85,26 @@ class Tree {
             return this._findRec(node.right, value);
         }
     }
+
+    levelOrder(callback) {
+        if (this.root === null) return [];
+
+        const queue = [this.root];
+        const result = [];
+
+        while (queue.length > 0) {
+            const current = queue.shift();
+
+            if (callback) {
+                callback(current);
+            } else {
+                result.push(current.value);
+            }
+
+            if (current.left) queue.push(current.left);
+            if (current.right) queue.push(current.right);
+        }
+
+        if (!callback) return result;
+    }
 }
