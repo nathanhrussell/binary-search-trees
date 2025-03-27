@@ -64,5 +64,11 @@ class Tree {
         return node;
     }
 
-
+    _minValue(node) {
+        let current = node;
+        while (current.left !== null) {
+            current = current.left;
+        }
+        return current.value;
     }
+}
