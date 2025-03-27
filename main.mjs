@@ -71,4 +71,18 @@ class Tree {
         }
         return current.value;
     }
+
+    find (value) {
+        return this._findRec(this.root, value);
+    }
+
+    _findRec(node, value) {
+        if (node === null || node.value === value) return node;
+
+        if(value < node.value) {
+            return this._findRec(node.left, value);
+        } else {
+            return this._findRec(node.right, value);
+        }
+    }
 }
