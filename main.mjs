@@ -107,4 +107,13 @@ class Tree {
 
         if (!callback) return result;
     }
+
+    height(node) {
+        if (node === null) return -1;
+
+        const leftHeight = this.height(node.left);
+        const rightHeight = this.height(node.right);
+
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
 }
