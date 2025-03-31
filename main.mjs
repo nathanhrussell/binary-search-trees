@@ -189,4 +189,9 @@ class Tree {
 
         return this.isBalanced(node.left) && this.isBalanced(node.right);
     }
+
+    rebalance() {
+        const sortedValues = this.inOrder();
+        this.root = this.buildTree(sortedValues);
+    }
 }
