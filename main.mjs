@@ -125,6 +125,23 @@ class Tree {
         this._inOrderRec(node.right, callback, result);
     }
 
+    preOrder(callback) {
+        const result = [];
+        this._preOrderRec(this.root, callback, result);
+        if (!callback) return result;
+    }
+
+    _preOrderRec(node, callback, result) {
+        if (node === null) return;
+        if (callback) {
+            callback(node);
+        } else {
+            result.push(node.value);
+        }
+        this._preOrderRec(node.left, callback, result);
+        this._preOrderRec(node.right, callback, result);
+    }
+
     height(node) {
         if (node === null) return -1;
 
