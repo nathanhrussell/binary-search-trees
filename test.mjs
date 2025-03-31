@@ -11,4 +11,8 @@ function generateRandomArray(size = 15, max = 100) {
 
 const array = generateRandomArray();
 const tree = new Tree(array);
+tree.insert(101);
+tree.insert(102);
+tree.insert(103);
 console.log(tree.isBalanced());
+
