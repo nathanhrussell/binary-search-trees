@@ -1,3 +1,5 @@
+import { Node, Tree } from "./main.mjs";
+
 function generateRandomArray(size = 15, max = 100) {
     const array = [];
     while (array.length < size) {
@@ -8,4 +10,5 @@ function generateRandomArray(size = 15, max = 100) {
 }
 
 const array = generateRandomArray();
-console.log(array);
+const tree = new Tree(array);
+console.log(tree.isBalanced());

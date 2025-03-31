@@ -195,3 +195,5 @@ class Tree {
         this.root = this.buildTree(sortedValues);
     }
 }
+
+export { Node, Tree };
